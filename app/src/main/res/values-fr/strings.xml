@@ -3,4 +3,13 @@
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">Bonjour Tout le Monde!</string>
     <string name="ButtonText">Je suis une buttone</string>
+
+    <string name="textview_message">S\'identifier</string>
+    <string name="login_message">Identifant</string>
+    <string name="pwd_message">Mot de Passe</string>
+
+    <string name="radio">RadioButtone</string>
+    <string name="check">VerifierButtone</string>
+    <string name="enable">Activier ?</string>
+
 </resources>
