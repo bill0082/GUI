@@ -17,12 +17,11 @@
     tools:context="com.example.yah.androidlabs.ListItemsActivity">
 
     <RadioButton
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
+
         android:text="@string/radio"
         />
     <CheckBox
-        android:layout_columnWeight="4"
+        android:layout_columnWeight="1"
         android:layout_gravity="fill"
         android:text="@string/check"
         />
@@ -32,9 +31,9 @@
         android:text="@string/enable"
         />
     <ImageButton
-        android:layout_columnWeight="4"
+        android:layout_columnWeight="1"
         android:layout_gravity="fill"
-        android:background="@android:drawable/btn_star_big_on" />
+        android:src="@android:drawable/btn_star_big_on" />
 
 
 </GridLayout>
