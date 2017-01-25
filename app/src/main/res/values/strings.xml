@@ -11,4 +11,12 @@
     <string name="radio">RadioButton</string>
     <string name="check">CheckButton</string>
     <string name="enable">Enable Something</string>
+
+    <string name="dialog_message">Do you want to finish the Activity?</string>
+    <string name="dialog_title">Quit ListItemsActivity</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="toastOn">Switch is On</string>
+    <string name="toastOff">Switch is Off</string>
 </resources>

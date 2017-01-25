@@ -12,4 +12,11 @@
     <string name="check">VerifierButtone</string>
     <string name="enable">Activier ?</string>
 
+    <string name="dialog_message">Voulez-vous fermez l\'activite</string>
+    <string name="dialog_title">Fermer le ListItemsActivity</string>
+    <string name="ok">OK</string>
+    <string name="cancel">annuler</string>
+
+    <string name="toastOn">Interrupteur active</string>
+    <string name="toastOff">Interrupteur desactive</string>
 </resources>

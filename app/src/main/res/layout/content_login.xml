@@ -20,10 +20,11 @@
         android:text="@string/textview_message" />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:text="@string/login_message"
+
         />
 
 
@@ -38,6 +39,14 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textview_message"
+        android:id="@+id/loginButton"
+        />
+
 
 
 </LinearLayout>
