@@ -11,6 +11,7 @@
     tools:context="com.example.yah.androidlabs.StartActivity">
 
     <TextView
+        android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_message" />
@@ -20,10 +21,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/startbutton"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/hello"
         android:layout_alignParentStart="true" />
 
+    <Button
+         android:id="@+id/startChat"
+         android:text="@string/startchatText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
 
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:layout_alignBottom="@+id/startbutton"
+        android:layout_alignTop="@+id/startbutton"></Button>
 
 </RelativeLayout>

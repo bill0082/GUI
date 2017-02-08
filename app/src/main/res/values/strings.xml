@@ -19,4 +19,7 @@
 
     <string name="toastOn">Switch is On</string>
     <string name="toastOff">Switch is Off</string>
+
+    <string name="startchatText">Start Chat</string>
+    <string name="sendText">Send</string>
 </resources>

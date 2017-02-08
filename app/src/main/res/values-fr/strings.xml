@@ -19,4 +19,6 @@
 
     <string name="toastOn">Interrupteur active</string>
     <string name="toastOff">Interrupteur desactive</string>
+
+    <string name="startchatText">Allonsi le Chat</string>
 </resources>
