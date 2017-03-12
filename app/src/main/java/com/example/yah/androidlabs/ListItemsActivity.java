@@ -16,8 +16,6 @@ import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import static android.R.attr.data;
-
 public class ListItemsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
     protected static final String ACTIVITY_NAME = "ListItemsActivity";
     static final int REQUEST_IMAGE_CAPTURE = 1;

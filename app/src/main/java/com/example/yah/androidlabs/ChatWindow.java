@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static com.example.yah.androidlabs.ChatDatabaseHelper.Columns;
 import static com.example.yah.androidlabs.ChatDatabaseHelper.KEY_MESSAGE;
 import static com.example.yah.androidlabs.ChatDatabaseHelper.TABLE_NAME;
 
@@ -56,12 +55,7 @@ public class ChatWindow extends AppCompatActivity {
             while(!cursor.isAfterLast()){
                 messageLog.add(cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
                 Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
-                cursor.moveToNext();
-            }  //this while loop crashes it sooooo this for loop doesn't run at all.
-
-
-
-        //Messages.rawQuery("SELECT KEY_MESSAGE FROM TABLE_NAME",null,null);
+                cursor.moveToNext();}
 
 
 
