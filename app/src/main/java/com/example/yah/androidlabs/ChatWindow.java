@@ -113,10 +113,10 @@ private Fragment mFrag;
 
                 if(isFrameUsed) {
 
-                    ChatWindow cw = new ChatWindow();
+                    //ChatWindow cw = new ChatWindow();
 
 
-                    mFrag = new MessageFragment(cw);
+                    mFrag = new MessageFragment(ChatWindow.this);
                     mFrag.setArguments(clickedInfo);
 
                     FragmentManager fm = getFragmentManager();
@@ -152,7 +152,7 @@ private Fragment mFrag;
 
                 ContentValues values = new ContentValues();
                 values.put(chathelper.KEY_MESSAGE, chats);
-                messages.insert(TABLE_NAME, KEY_MESSAGE, values);
+                idLog.add( messages.insert(TABLE_NAME, KEY_MESSAGE, values));
                 messageAdapter.notifyDataSetChanged();
                 chatMessage.setText("");
             }
@@ -168,14 +168,23 @@ private Fragment mFrag;
         if (requestCode == 10){
             if(resultCode == RESULT_OK) {
                 String returnedID = data.getStringExtra("DELETE id");
-                int idNum = Integer.parseInt(returnedID)+1;
+              //  int idNum = Integer.parseInt(returnedID)+1;
                 String returnedMSG = data.getStringExtra("DELETE msg");
 
                 Log.i("The returned ID", returnedID);
-                Log.i("The returned MSG", returnedMSG);
+               Log.i("The returned MSG", returnedMSG);
 
-               // messages.delete(TABLE_NAME, KEY_ID + "=?", new String[]{ returnedID });
+                messages.delete(TABLE_NAME, KEY_ID + "=?", new String[]{ returnedID });
+                messageLog.clear();;
+                idLog.clear();
+                cursor = chathelper.getMessages();
+                cursor.moveToFirst();
 
+                while(!cursor.isAfterLast()){
+                    messageLog.add(cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
+                    idLog.add(cursor.getLong(cursor.getColumnIndex(KEY_ID)));
+                    Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
+                    cursor.moveToNext();}
               //  messages.delete(TABLE_NAME, KEY_ID + "='" + returnedID + "' and " + KEY_MESSAGE + "='" +returnedMSG + "'", null);
 
          //       messages.delete(TABLE_NAME, KEY_ID + "=? and " + KEY_MESSAGE + "=?", new String[] {null, returnedMSG});
@@ -183,20 +192,32 @@ private Fragment mFrag;
          //       messages.delete(TABLE_NAME, "_id like ?", new String[] {returnedID});
 
 
-                 messages.execSQL("DELETE FROM MESSAGES WHERE Message='" + returnedMSG + "'"); // AND _id like " + returnedID );
+                // messages.execSQL("DELETE FROM MESSAGES WHERE Message='" + returnedMSG + "'"); // AND _id like " + returnedID );
 
-                this.recreate();
+               // this.recreate();
+                messageAdapter.notifyDataSetChanged();
             }
         }
     }
 
-    protected void delEntry(String msg){
+    protected void delEntry(long id ){
         SQLiteDatabase db = chathelper.getWritableDatabase();
 
-        String returnedMSG = msg;
+        //String returnedMSG = msg;
 
-                db.delete(TABLE_NAME, KEY_MESSAGE + "=?", new String[] {returnedMSG});
+                db.delete(TABLE_NAME, KEY_ID + "=?", new String[] {Long.toString(id)});
 
+        messageLog.clear();;
+        idLog.clear();
+        cursor = chathelper.getMessages();
+        cursor.moveToFirst();
+
+        while(!cursor.isAfterLast()){
+            messageLog.add(cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
+            idLog.add(cursor.getLong(cursor.getColumnIndex(KEY_ID)));
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(chathelper.KEY_MESSAGE)));
+            cursor.moveToNext();}
+messageAdapter.notifyDataSetChanged();
 
  }
 
@@ -225,7 +246,7 @@ private Fragment mFrag;
             return messageLog.get(position);
         }
 
-//        public long getItemId(int position){ return idLog.get(position);}
+        public long getItemId(int position){ return idLog.get(position);}
 
         public View getView(int position, View convertView, ViewGroup parent){
 

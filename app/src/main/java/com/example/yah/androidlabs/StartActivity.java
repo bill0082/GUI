@@ -49,6 +49,16 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(weatherWindow);
             }
         });
+
+        Button testToolBar = (Button) findViewById(R.id.testToolBar);
+        testToolBar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.i(ACTIVITY_NAME, "User clicked Toolbar Button!");
+                Intent toolbarWindow = new Intent(StartActivity.this, TestToolBar.class);
+                startActivity(toolbarWindow);
+            }
+        });
     }
 
     @Override

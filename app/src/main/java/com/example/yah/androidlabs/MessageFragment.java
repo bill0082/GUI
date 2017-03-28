@@ -6,15 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
-
-import static android.R.id.list;
 
 /**
  * Created by Yah on 2017-03-12.
@@ -25,19 +18,21 @@ public class MessageFragment extends Fragment {
     ChatWindow cw = new ChatWindow();
 
     public MessageFragment() {
-        this(false);
+        this(null);
     }
-    public MessageFragment(boolean isT  )
+   /* public MessageFragment(boolean isT  )
     {
         isTablet = isT;
     }
-
+*/
     public MessageFragment(ChatWindow cw){
         this.cw = cw;
     }
 
     String str;
     Long fid;
+
+    @Override
     public void onCreate(Bundle b)
     {
         super.onCreate(b);
@@ -67,19 +62,30 @@ public class MessageFragment extends Fragment {
 
 
 //                cw.messages.delete(TABLE_NAME, KEY_MESSAGE + "=?", new String[] {delText});
-
-                cw.delEntry(delText);
+//if(cw != null) { //tyablet
+    cw.delEntry(fid);
 
 //                cw.getFragmentManager().beginTransaction().remove(cw.getFrag()).commit();
 
-                getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.frameLayout)).commit();
+    getFragmentManager().beginTransaction().remove(getFragmentManager().findFragmentById(R.id.frameLayout)).commit();
 
-             //   ListView list = (ListView)getActivity().findViewById(R.id.listView);
+    //   ListView list = (ListView)getActivity().findViewById(R.id.listView);
 
-             //   ((ArrayAdapter<String>) list.getAdapter()).notifyDataSetChanged();
+    //   ((ArrayAdapter<String>) list.getAdapter()).notifyDataSetChanged();
 
-               getActivity().recreate();
+    //getActivity().recreate();
+/* }
+               else //phone
+{
 
+    Log.i("Whats the fid", fid.toString());
+    Intent resultIntent = new Intent();
+    resultIntent.putExtra("deleteID", fid.toString());
+    resultIntent.putExtra("deleteMSG", str);
+    getActivity().setResult( 10, resultIntent );
+   getActivity().finish();
+
+}
              /*   FragmentManager fm = cw.getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.hide(mFrag);

@@ -22,4 +22,7 @@
 
     <string name="startchatText">Start Chat</string>
     <string name="sendText">Send</string>
+    <string name="title_activity_test_tool_bar">TestToolBar</string>
+    <string name="newMsg">New Message</string>
+    <string name="task1">You selected Item 1</string>
 </resources>
